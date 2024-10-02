@@ -17,21 +17,9 @@ return [
     // These should match the socialite providers you have setup in your services.php config.
     // Uses blade UI icons, for example: https://github.com/owenvoke/blade-fontawesome
     'providers' => [
-        'facebook' => [
-            'label' => 'Facebook',
-            'icon' => 'fab-facebook-f',
-        ],
         'github' => [
             'label' => 'GitHub',
             'icon' => 'fab-github',
-        ],
-        'google' => [
-            'label' => 'Google',
-            'icon' => 'fab-google',
-        ],
-        'twitter' => [
-            'label' => 'Twitter',
-            'icon' => 'fab-twitter',
         ],
     ],
 
