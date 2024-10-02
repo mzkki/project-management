@@ -1,5 +1,3 @@
-version: "3.3"
-
 volumes:
     mysql_data:
 
@@ -10,10 +8,10 @@ services:
         volumes:
             - mysql_data:/var/lib/mysql
         environment:
-            - MYSQL_DATABASE=project_management
-            - MYSQL_USER=dev
-            - MYSQL_PASSWORD=passwordmysql
-            - MYSQL_ROOT_PASSWORD=passwordmysql
+            - MYSQL_DATABASE=helper
+            - MYSQL_USER=helper
+            - MYSQL_PASSWORD=helper
+            - MYSQL_ROOT_PASSWORD=helper
         command: --default-storage-engine innodb
         restart: unless-stopped
         healthcheck:
@@ -23,21 +21,24 @@ services:
             timeout: 10s
             retries: 3
     helper:
-        image: eloufirhatim/helper:latest
+        image: mzkki/helper:latest
         container_name: helper-server
         environment:
             - DB_CONNECTION=mysql
             - DB_HOST=sqldb
             - DB_PORT=3306
-            - DB_DATABASE=project_management
-            - DB_USERNAME=dev
-            - DB_PASSWORD=passwordmysql
+            - DB_DATABASE=helper
+            - DB_USERNAME=helper
+            - DB_PASSWORD=helper
             - MAIL_MAILER=smtp
             - MAIL_HOST=mail.binaanugerahsukses.com
             - MAIL_PORT=465
             - MAIL_USERNAME=siaga@mail.binaanugerahsukses.com
             - MAIL_PASSWORD=katasandiemail123
-            - MAIL_ENCRYPTION=none
+            - MAIL_ENCRYPTION=null
+            - GITHUB_ID=Ov23liVMU32TkNdXjR3c
+            - GITHUB_SECRET=4a19247659fd6dfe0e3acbd4093471cb580811e0
+            - GITHUB_URL=http://194.238.19.238:8000/oauth/callback/github
         depends_on:
             - sqldb
         restart: "no"
