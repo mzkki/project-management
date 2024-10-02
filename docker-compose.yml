@@ -12,8 +12,8 @@ services:
         environment:
             - MYSQL_DATABASE=project_management
             - MYSQL_USER=dev
-            - MYSQL_PASSWORD=passwordmysql123
-            - MYSQL_ROOT_PASSWORD=passwordmysql123
+            - MYSQL_PASSWORD=passwordmysql
+            - MYSQL_ROOT_PASSWORD=passwordmysql
         command: --default-storage-engine innodb
         restart: unless-stopped
         healthcheck:
