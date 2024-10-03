@@ -8,10 +8,10 @@ services:
         volumes:
             - mysql_data:/var/lib/mysql
         environment:
-            - MYSQL_DATABASE=helper
-            - MYSQL_USER=helper
-            - MYSQL_PASSWORD=helper
-            - MYSQL_ROOT_PASSWORD=helper
+            - MYSQL_DATABASE=
+            - MYSQL_USER=
+            - MYSQL_PASSWORD=
+            - MYSQL_ROOT_PASSWORD=
         command: --default-storage-engine innodb
         restart: unless-stopped
         healthcheck:
@@ -27,23 +27,18 @@ services:
             - DB_CONNECTION=mysql
             - DB_HOST=sqldb
             - DB_PORT=3306
-            - DB_DATABASE=helper
-            - DB_USERNAME=helper
-            - DB_PASSWORD=helper
+            - DB_DATABASE=
+            - DB_USERNAME=
+            - DB_PASSWORD=
             - MAIL_MAILER=smtp
-            - MAIL_HOST=mail.binaanugerahsukses.com
-            - MAIL_PORT=465
-            - MAIL_USERNAME=siaga@mail.binaanugerahsukses.com
-            - MAIL_PASSWORD=katasandiemail123
+            - MAIL_HOST=
+            - MAIL_PORT=
+            - MAIL_USERNAME=
+            - MAIL_PASSWORD=
             - MAIL_ENCRYPTION=null
-            - GITHUB_ID=Ov23liVMU32TkNdXjR3c
-            - GITHUB_SECRET=4a19247659fd6dfe0e3acbd4093471cb580811e0
-            - GITHUB_URL=https://mka.mzkki.my.id/oauth/callback/github
-            - APP_URL=https://mka.mzkki.my.id/
-            - APP_DEBUG=FALSE
-            - APP_NAME="MKA - PM"
-            - APP_FORCE_HTTPS=true
-            - APP_ENV=production
+            - GITHUB_ID=
+            - GITHUB_SECRET=
+            - GITHUB_URL=
         depends_on:
             - sqldb
         restart: "no"

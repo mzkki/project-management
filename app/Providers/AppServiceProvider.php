@@ -70,8 +70,9 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         // Force HTTPS over HTTP
-        URL::forceScheme('https');
-        }
+        if (config('app.env') === 'production')
+            URL::forceScheme('https');
+    }
 
     private function configureApp(): void
     {
