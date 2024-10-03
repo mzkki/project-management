@@ -38,7 +38,12 @@ services:
             - MAIL_ENCRYPTION=null
             - GITHUB_ID=Ov23liVMU32TkNdXjR3c
             - GITHUB_SECRET=4a19247659fd6dfe0e3acbd4093471cb580811e0
-            - GITHUB_URL=http://194.238.19.238:8000/oauth/callback/github
+            - GITHUB_URL=https://mka.mzkki.my.id/oauth/callback/github
+            - APP_URL=https://mka.mzkki.my.id/
+            - APP_DEBUG=FALSE
+            - APP_NAME="MKA - PM"
+            - APP_FORCE_HTTPS=true
+            - APP_ENV=production
         depends_on:
             - sqldb
         restart: "no"
@@ -46,3 +51,10 @@ services:
             - 8000:8000
         volumes:
             - /etc/localtime:/etc/localtime
+    helper-queue:
+        image: mzkki/helper:latest
+        container_name: helper-queue
+        depends_on:
+            - helper
+        restart: always
+        command: php artisan queue:work
